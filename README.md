@@ -1,0 +1,3 @@
+# alljoyn
+AllJoyn Projects Combined
+
