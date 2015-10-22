@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# changes git branch for all submodules synchronosly
+
+if [ "$1" == "" ]; then
+    echo "Error: Missing branch name parameter"
+    echo "Usage: $0 [branch]"
+    exit
+fi
+
+git submodule foreach "git checkout $1; git pull"

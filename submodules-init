@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# this script fetches all submodules 
+git submodule update --init

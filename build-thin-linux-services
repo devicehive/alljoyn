@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# this script runs build according to documentation
+# at https://allseenalliance.org/framework/documentation/develop/building/thin-linux
+
+
+# Build services samples
+pushd ./services/base_tcl/sample_apps
+scons WS=off AJ_TCL_ROOT=../../../core/ajtcl
+popd

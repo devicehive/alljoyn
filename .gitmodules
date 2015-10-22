@@ -1,0 +1,6 @@
+[submodule "core/ajtcl"]
+	path = core/ajtcl
+	url = https://git.allseenalliance.org/gerrit/core/ajtcl.git
+[submodule "services/base_tcl"]
+	path = services/base_tcl
+	url = https://git.allseenalliance.org/gerrit/services/base_tcl.git

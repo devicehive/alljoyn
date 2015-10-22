@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# this script runs build according to documentation
+# at https://allseenalliance.org/framework/documentation/develop/building/thin-linux
+
+# make sure to run ./setup first time before building
+
+# Build the core
+pushd ./core/ajtcl
+scons WS=off
+popd
