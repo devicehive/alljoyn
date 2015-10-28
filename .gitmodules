@@ -4,3 +4,6 @@
 [submodule "services/base_tcl"]
 	path = services/base_tcl
 	url = https://git.allseenalliance.org/gerrit/services/base_tcl.git
+[submodule "core/alljoyn"]
+	path = core/alljoyn
+	url = https://git.allseenalliance.org/gerrit/core/alljoyn.git

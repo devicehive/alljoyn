@@ -5,7 +5,12 @@
 
 # make sure to run ./setup first time before building
 
-# Build the core
+# Build standard core
+pushd ./core/alljoyn
+scons BINDINGS=c,cpp WS=off BT=off ICE=off SERVICES="about,notification,controlpanel,config,onboarding,sample_apps"
+popd
+
+# Build thin core
 pushd ./core/ajtcl
 scons WS=off
 popd
