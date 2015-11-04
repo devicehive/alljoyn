@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`pwd`/core/alljoyn/build/linux/x86_64/debug/dist/cpp/lib/
+`pwd`/core/alljoyn/build/linux/x86_64/debug/dist/cpp/bin/alljoyn-daemon
