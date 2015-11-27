@@ -3,9 +3,9 @@ AllJoyn Projects Combined
 
 ## Cloning
 
-This repository uses submodules so to clonse fresh copy use command
+This repository uses submodules so to clone fresh copy use command
 ```
-git clone --recurisve https://github.com/devicehive/alljoyn.git
+git clone --recursive https://github.com/devicehive/alljoyn.git
 ```
 
 Or if doing pull to existing repo use

@@ -5,6 +5,7 @@
 
 # Build tools and libs
 sudo apt-get install build-essential libgtk2.0-dev  libcap-dev libssl-dev xsltproc ia32-libs libxml2-dev
+sudo gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf # required for cross compilation
 
 # Install Python v2.6/2.7 (Python v3.0 is not compatible and will cause errors)
 sudo apt-get install python

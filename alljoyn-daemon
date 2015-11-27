@@ -1,4 +1,12 @@
 #!/bin/bash
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`pwd`/core/alljoyn/build/linux/x86_64/debug/dist/cpp/lib/
-`pwd`/core/alljoyn/build/linux/x86_64/debug/dist/cpp/bin/alljoyn-daemon
+platform=${PLATFORM:-`uname -i`}   # platform: x86_64|armhf
+variant=${VARIANT:-"release"}      # variant: debug|release
+# echo "platform=$platform variant=$variant"
+
+AJ_PATH=`pwd`/core/alljoyn
+AJ_CPP=$AJ_PATH/build/linux/$platform/$variant/dist/cpp
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$AJ_CPP/lib/
+$AJ_CPP/bin/alljoyn-daemon
+

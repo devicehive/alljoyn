@@ -3,8 +3,26 @@
 # this script runs build according to documentation
 # at https://allseenalliance.org/framework/documentation/develop/building/thin-linux
 
+platform=${PLATFORM:-`uname -i`}   # platform: x86_64|armhf
+variant=${VARIANT:-"release"}      # variant: debug|release
+# echo "platform=$platform variant=$variant"
 
-# Build services samples
+case $platform in
+    arm|armhf|RPi|RPi2)
+        cross_compile=arm-linux-gnueabihf-
+        cpu=armhf
+        ;;
+
+    *)
+        cross_compile=
+        cpu=$platform
+        ;;
+esac
+
+# build services samples
 pushd ./services/base_tcl/sample_apps
-scons WS=off AJ_TCL_ROOT=../../../core/ajtcl
+scons WS=off VARIANT=$variant CROSS_COMPILE=$cross_compile CPU=$cpu AJ_TCL_ROOT=../../../core/ajtcl || exit 1
 popd
+
+exit 0 # OK
+

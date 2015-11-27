@@ -5,13 +5,32 @@
 
 # make sure to run ./setup first time before building
 
-# Build standard core
+platform=${PLATFORM:-`uname -i`}   # platform: x86_64|armhf
+variant=${VARIANT:-"release"}      # variant: debug|release
+# echo "platform=$platform variant=$variant"
+
+case $platform in
+    arm|armhf|RPi|RPi2)
+        cross_compile=arm-linux-gnueabihf-
+        cpu=armhf
+        ;;
+
+    *)
+        cross_compile=
+        cpu=$platform
+        ;;
+esac
+
+# build standard core
 pushd ./core/alljoyn
-scons BINDINGS=c,cpp WS=off BT=off ICE=off 
+scons BINDINGS=cpp WS=off BT=off ICE=off VARIANT=$variant CROSS_COMPILE=$cross_compile CPU=$cpu || exit 1
 #SERVICES="about,notification,controlpanel,config,onboarding,sample_apps"
 popd
 
-# Build thin core
+# build thin core
 pushd ./core/ajtcl
-scons WS=off
+scons BINDINGS=cpp WS=off VARIANT=$variant CROSS_COMPILE=$cross_compile CPU=$cpu || exit 1
 popd
+
+exit 0 # OK
+
