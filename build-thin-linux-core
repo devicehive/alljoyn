@@ -29,7 +29,8 @@ popd
 
 # build thin core
 pushd ./core/ajtcl
-scons BINDINGS=cpp WS=off VARIANT=$variant CROSS_COMPILE=$cross_compile CPU=$cpu || exit 1
+CROSS_PREFIX=$cross_compile CROSS_CFLAGS="" CROSS_LINKFLAGS="" scons -c BINDINGS=cpp WS=off VARIANT=$variant # need to clean all intermediate builds!
+CROSS_PREFIX=$cross_compile CROSS_CFLAGS="" CROSS_LINKFLAGS="" scons BINDINGS=cpp WS=off VARIANT=$variant || exit 1
 popd
 
 exit 0 # OK

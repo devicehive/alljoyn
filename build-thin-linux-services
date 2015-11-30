@@ -21,7 +21,8 @@ esac
 
 # build services samples
 pushd ./services/base_tcl/sample_apps
-scons WS=off VARIANT=$variant CROSS_COMPILE=$cross_compile CPU=$cpu AJ_TCL_ROOT=../../../core/ajtcl || exit 1
+scons -c BINDINGS=cpp WS=off VARIANT=$variant CROSS_COMPILE=$cross_compile CPU=$cpu
+scons BINDINGS=cpp WS=off VARIANT=$variant CROSS_COMPILE=$cross_compile CPU=$cpu AJ_TCL_ROOT=../../../core/ajtcl || exit 1
 popd
 
 exit 0 # OK
