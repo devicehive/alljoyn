@@ -13,6 +13,17 @@ sudo apt-get install python
 # Installl SCons v2.0.
 sudo apt-get install scons
 
-#cOpenSSL
+# OpenSSL
 sudo apt-get install libssl-dev
+
+# OpenSSL (ARM)
+OPENSSL=openssl-1.0.0q
+[ -e $OPENSSL.tar.gz ] || wget https://www.openssl.org/source/$OPENSSL.tar.gz
+[ -d $OPENSSL ] || tar xvf $OPENSSL.tar.gz
+pushd $OPENSSL
+export cross=arm-linux-gnueabihf-
+./Configure dist --prefix=/usr/arm-linux-gnueabihf -fPIC shared
+make CC="${cross}gcc" AR="${cross}ar r" RANLIB="${cross}ranlib"
+sudo make install
+popd
 
